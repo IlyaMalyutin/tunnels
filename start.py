@@ -50,7 +50,10 @@ def ping(port):
 
 
 def start():
-
+    """
+    Inter point
+    :return:
+    """
     threads = {}
 
     for tunnel in config.tunnels:
