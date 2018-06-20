@@ -8,3 +8,39 @@
 
 # sleep timeout for ping ports
 SLEEP = 3  # sec
+
+# python-logging
+logging_conf = {
+    'version': 1,
+    'formatters': {
+        'detailed': {
+            'class': 'logging.Formatter',
+            'format': '%(asctime)s - %(levelname)s - %(processName)s - %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+            'formatter': 'detailed'
+        },
+        'file': {
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': 'logs/tunnels.log',
+            'when': 'D',
+            'interval': 5,
+            'backupCount': 5,
+            'formatter': 'detailed'
+        }
+    },
+    'loggers': {
+        'tunnels': {
+            'level': 'DEBUG',
+            'handlers': [
+                'console',
+                'file'
+            ],
+            'propagate': True,
+        },
+    }
+}
