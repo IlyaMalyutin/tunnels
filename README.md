@@ -24,6 +24,10 @@ You can then run the script:
 
 `python 3 start.py`
 
+## Requirements
+
+Python>3.2
+
 ## Описание
 Простой python-скрипт для контроля ssh-туннелей.
 
@@ -47,3 +51,7 @@ You can then run the script:
 После этого можно запустить скрипт:
 
 `python3 start.py`
+
+## Требования
+
+Python>3.2

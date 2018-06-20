@@ -9,6 +9,7 @@ from multiprocessing import Process
 
 import config
 
+os.makedirs('logs', exist_ok=True)
 logging.config.dictConfig(config.logging_conf)
 logger = logging.getLogger('tunnels')
 
