@@ -22,7 +22,7 @@ Add your tunnels and ports as in the example from config_example.py
 
 You can then run the script:
 
-`python 3 start.py`
+`python3 start.py`
 
 ## Requirements
 
