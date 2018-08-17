@@ -65,14 +65,24 @@ def start():
         threads[tunnel] = start_process(tunnel[CMD].split(' '))
 
     time.sleep(config.SLEEP)
+    death_count = 0
+    max_death_count = len(config.tunnels) * 3
 
     while True:
         for tunnel in threads:
             if not ping(tunnel[PORT]):
                 threads[tunnel].terminate()
+                death_count += 1
+            else:
+                death_count = 0
+
             if not threads[tunnel].is_alive():
                 threads[tunnel] = start_process(tunnel[CMD].split(' '))
                 logger.info('started killed process: {}'.format(tunnel))
+
+        if death_count >= max_death_count:
+            logger.info('exceeded death count!')
+            return -1
         time.sleep(config.SLEEP)
 
 
